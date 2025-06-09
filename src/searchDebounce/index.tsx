@@ -19,6 +19,10 @@ export default function SearchDebounce() {
   }, [searchQuery]);
 
   useEffect(() => {
+    if (debouncedQuery?.length === 0) {
+      setResults([]);
+      return;
+    }
     if (debouncedQuery && debouncedQuery?.length > 0) {
       setResults(mockSearchApi());
     }
@@ -26,7 +30,10 @@ export default function SearchDebounce() {
 
   const onSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    if (value.length === 0) return;
+    if (value.length === 0) {
+      setDebouncedQuery("");
+      return;
+    }
     setSearchQuery(value);
   };
 
@@ -73,6 +80,8 @@ export default function SearchDebounce() {
         gap: 20,
       }}>
       <h1>Search Debounce</h1>
+      <h3>With paginated search results</h3>
+
       <div style={{ display: "flex", flexDirection: "row", gap: 10 }}>
         <input onChange={onSearch} />
         <button>Search</button>
