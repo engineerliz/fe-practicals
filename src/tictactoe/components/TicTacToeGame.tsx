@@ -4,7 +4,7 @@ import Tile, { tileValue } from "./Tile";
 
 export type player = "x" | "o";
 
-export default function Game() {
+export default function TicTacToeGame() {
   const [currentPlayer, setCurrentPlayer] = useState<player>("x");
   const [board, setBoard] = useState<tileValue[]>([
     "empty",

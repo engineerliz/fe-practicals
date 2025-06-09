@@ -1,4 +1,4 @@
-import { player } from "./Game";
+import { player } from "./TicTacToeGame";
 
 export type tileValue = player | "empty";
 
