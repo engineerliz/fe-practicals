@@ -3,9 +3,19 @@ import "./App.css";
 
 function Home() {
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: 15,
+        margin: 40,
+      }}>
+      <h1>Frontend Practicals</h1>
       <Link to="/tictactoe">
-        <button>Play Tic Tac Toe</button>
+        <button>Tic Tac Toe</button>
+      </Link>
+      <Link to="/search-debounce">
+        <button>Search Debounce</button>
       </Link>
     </div>
   );
